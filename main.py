@@ -7,7 +7,11 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, last_day, when, isnull, col, sum, count, round
 
 context = SparkContext()
-spark = SparkSession(context)
+spark = SparkSession.builder \
+        .master('local[1') \
+        .appName('omise-code-challenge') \
+        .getOrCreate()
+spark.sparkContext.setLogLevel('ERROR')
 
 try:
     parser = argparse.ArgumentParser()
@@ -44,7 +48,7 @@ df = spark \
 df.printSchema()
 
 # Check dataframe's record count
-print(df.count())
+print('Payment data record count: {}'.format(df.count()))
 
 ### COLUMN 1
 df = df.withColumn('fi_code', lit('42'))
@@ -146,7 +150,7 @@ joined_df_02 = df_02.alias('a').join(
 col_04_df = joined_df_01.union(joined_df_02)
 
 # Check count
-print(col_04_df.count())
+print('Payment data record count after joining with transaction types data: {}'.format(col_04_df.count()))
 
 # Read merchant business type details
 merchant_business_type_df = spark \
@@ -246,24 +250,21 @@ col_09_df = col_09_df.withColumn('terminal_average_amount_range',
 ).drop('average_amount')
 
 # Check sum amount between original and transformed data
-col_09_df.select(sum(col_09_df.amount)).show()
-df.select(sum('amount')).show()
+print('Check total amount between base payment data & output report:')
+col_09_df.select(sum(col_09_df.amount).alias('payment_data_total_amount')).show()
+df.select(sum('amount').alias('output_report_total_amount')).show()
 
-dates = df.select('date').distinct().rdd.collect()
-
-# if not os.path.exists('/output'):
-#     try:
-#         original_umask = os.umask(0)
-#         os.makedir('/output', 0777)
-#     finally:
-#         os.umask(original_umask)
+# Create output dir
+if not os.path.exists('./output'):
+    os.mkdir('./output')
 
 # Export data to CSV
+dates = df.select('date').distinct().rdd.collect()
 for date in dates:
     file_name_date = date[0].strftime('%Y%m%d')
     filter_date = date[0].strftime('%Y-%m-%d')
 
-    file_name = './{prefix}_{date}.csv'.format(
+    file_name = './output/{prefix}_{date}.csv'.format(
         prefix = 'ACME',
         date = file_name_date
     )
