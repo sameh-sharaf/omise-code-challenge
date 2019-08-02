@@ -4,7 +4,7 @@ This project is done for the [data engineer code challenge](https://github.com/o
 
 ## How To Run
 
-### Close The Repo
+### Clone The Repo
 
 Clone from GitHub using HTTPS:
 
