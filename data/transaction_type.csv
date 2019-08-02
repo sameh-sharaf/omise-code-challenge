@@ -1,0 +1,17 @@
+card_type,country,card_brand,transaction_type_code
+type01,Local,brand01,010001
+type01,Local,brand02,010002
+type01,Local,brand03,010003
+type01,Local,other,010004
+type01,Inter,brand01,010011
+type01,Inter,brand02,010012
+type01,Inter,brand03,010013
+type01,Inter,other,010014
+type02,Local,brand01,010021
+type02,Local,brand02,010022
+type02,Local,brand03,010023
+type02,Local,other,010024
+type02,Inter,brand01,010031
+type02,Inter,brand02,010032
+type02,Inter,brand03,010033
+type02,Inter,other,010034
