@@ -52,6 +52,8 @@ To get more details about arguments to be passed:
 spark-submit main.py --help
 ```
 
+You may find the report(s) in `./output/` directory.
+
 ## Run Code Using Docker
 If `PySpark` is not installed, you may build a docker container with `PySpark` installed.
 
@@ -78,10 +80,13 @@ docker run -it \
         --transaction_type_backend_data=transaction_type_backend.csv \
         --merchant_business_type_data=merchant_business_type.csv \
         --mcc_data=mcc_data.csv
+```
 
-# Get job output
+To get the output from Docker container:
+```
 docker cp $(docker ps -aqf "name=omise-code-challenge-container"):/home/output/ .
 ```
+
 ## View The Notebook On Cloud
 The `PySpark` code in this repo is available on cloud using Databricks community edition. You can access the notebook [here](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/5087274976005126/1221193323574810/6106487312754722/latest.html).
 
