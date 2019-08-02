@@ -23,7 +23,7 @@ mkvirtualenv --python=`which python3` omise-code-challenge
 pip install -r requirements.txt
 ```
 
-If PySpark is already installed on your machine. You can directly run the job using `spark-submit`.
+If `PySpark` is already installed on your machine. You can directly run the job using `spark-submit`.
 
 ### Run PySpark Job
 
@@ -66,5 +66,14 @@ docker run -it \
         --merchant_business_type_data=merchant_business_type.csv \
         --mcc_data=mcc_data.csv
 
+# Get job output
 docker cp $(docker ps -aqf "name=omise-code-challenge-container"):/home/output/ .
 ```
+
+## Tools Used
+- Python 3.6
+- PySpark 2.3.1
+- Pandas
+- Docker 19.03.1
+- Virtualenv 16.4.3
+
