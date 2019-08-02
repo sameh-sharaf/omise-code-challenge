@@ -1,0 +1,6 @@
+/data
+/output
+.*
+spark-warehouse
+Dockerfile
+README.md
