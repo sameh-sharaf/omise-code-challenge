@@ -10,9 +10,9 @@ Clone from GitHub using HTTPS:
 
 `git clone https://github.com/sameh-sharaf/omise-code-challenge.git`
 
-### Set Repo Environment
+### Set Repo Environment (Optional)
 
-Install `virtualenv` to set up the python project environment (Optional):
+Install `virtualenv` to set up the python project environment:
 
 ```
 pip install virtualenvwrapper
