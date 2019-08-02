@@ -1,8 +1,18 @@
-## Run Code Locally
+# OMISE Code Challenge
+
+This project is done for the code challenge URLHERE. The project is written using `Python 3.6` & `PySpark 2.3.1`.  
+
+## How To Run
+
+### Close The Repo
+
+Clone from GitHub using HTTPS:
+
+`git clone https://github.com/sameh-sharaf/omise-code-challenge.git`
 
 ### Set Repo Environment
 
-Install `virtualenv` to set up the python project environment:
+Install `virtualenv` to set up the python project environment (Optional):
 
 ```
 pip install virtualenvwrapper
@@ -18,14 +28,15 @@ pip install --upgrade virtualenv
 
 # Create environment
 mkvirtualenv --python=`which python3` omise-code-challenge
-
-# Install repo dependencies
-pip install -r requirements.txt
 ```
 
-If `PySpark` is already installed on your machine. You can directly run the job using `spark-submit`.
+### Install repo dependencies
+
+`pip install -r requirements.txt`
 
 ### Run PySpark Job
+
+If `PySpark` is already installed on your machine. You can directly run the job using `spark-submit`.
 
 ```
 spark-submit main.py \
