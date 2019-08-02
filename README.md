@@ -48,14 +48,16 @@ spark-submit main.py \
 ```
 
 To get more details about arguments to be passed:
-`spark-submit main.py --help`
+```
+spark-submit main.py --help
+```
 
 ## Run Code Using Docker
 If `PySpark` is not installed, you may build a docker container with `PySpark` installed.
 
 ### Build Docker Container
 ```
-docker build -t oms-code-challenge-image .
+docker build -t omise-code-challenge-image .
 ```
 
 ### Run Job
@@ -69,7 +71,7 @@ docker run -it \
     --volume="$(pwd)/data/transaction_type_backend.csv:/home/transaction_type_backend.csv:ro" \
     --volume="$(pwd)/data/merchant_business_type.csv:/home/merchant_business_type.csv:ro" \
     --volume="$(pwd)/data/mcc_data.csv:/home/mcc_data.csv:ro" \
-    oms-code-challenge-image \
+    omise-code-challenge-image \
     spark-submit main.py \
         --payment_data=acme_december_2018.csv \
         --transaction_type_data=transaction_type.csv \
