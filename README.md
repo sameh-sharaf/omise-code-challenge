@@ -30,7 +30,7 @@ pip install --upgrade virtualenv
 mkvirtualenv --python=`which python3` omise-code-challenge
 ```
 
-### Install repo dependencies
+### Install Repo Dependencies
 
 `pip install -r requirements.txt`
 
@@ -50,7 +50,7 @@ spark-submit main.py \
 To get more details about arguments to be passed:
 `spark-submit main.py --help`
 
-## Run code using Docker
+## Run Code Using Docker
 If `PySpark` is not installed, you may build a docker container with `PySpark` installed.
 
 ### Build Docker Container
