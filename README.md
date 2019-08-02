@@ -1,6 +1,6 @@
 # OMISE Code Challenge
 
-This project is done for the code challenge URLHERE. The project is written using `Python 3.6` & `PySpark 2.3.1`.  
+This project is done for the [data engineer code challenge](https://github.com/omise/challenges/tree/challenge-data-engineer). The project is written using `Python 3.6` & `PySpark 2.3.1`.  
 
 ## How To Run
 
